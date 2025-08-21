@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Azure DevOps Wiki — TOAST UI Editor",
+  "version": "0.2.0",
+  "description": "Replaces the Azure DevOps Wiki markdown editor with Toast UI (WYSIWYG/Markdown) + image uploads.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://dev.azure.com/*",
+    "https://*.visualstudio.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://dev.azure.com/*/_wiki/*",
+        "https://*.visualstudio.com/*/*/_wiki/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {}
+}

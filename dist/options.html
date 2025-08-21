@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Azure DevOps Wiki — Toast UI Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 24px; max-width: 720px; }
+    label { display:block; margin-top: 16px; }
+    input[type="text"], input[type="password"] { width: 400px; }
+    .hint { color:#555; font-size: 12px; }
+    .row { margin: 16px 0; }
+  </style>
+</head>
+<body>
+  <h1>Settings</h1>
+
+  <div class="row">
+    <label>Personal Access Token (PAT)
+      <input id="pat" type="password" placeholder="Paste PAT (Wiki: Read & write)" />
+    </label>
+    <div class="hint">Stored via chrome.storage.local. Use the least scope & shortest expiry you can.</div>
+  </div>
+
+  <div class="row">
+    <label><input id="enableUploads" type="checkbox" /> Enable image paste → Wiki Attachments API</label>
+  </div>
+
+  <div class="row">
+    <label><input id="useShadowDom" type="checkbox" /> Mount editor inside Shadow DOM (isolate styles)</label>
+  </div>
+
+  <div class="row">
+    <label><input id="enableCodeSyntax" type="checkbox" checked /> Enable code syntax highlighting (Prism)</label>
+    <label><input id="enableColorSyntax" type="checkbox" /> Enable color syntax plugin</label>
+  </div>
+
+  <div class="row">
+    <label>Default font family (Markdown will insert &lt;font face="..."&gt;)</label>
+    <input id="defaultFontFamily" type="text" placeholder="Segoe UI, Arial, sans-serif" />
+  </div>
+
+  <div class="row">
+    <label><input id="enableMermaid" type="checkbox" checked />
+      Enable Mermaid diagrams (```mermaid blocks)</label>
+    <div class="hint">Azure DevOps Wiki supports a limited subset of Mermaid.</div>
+  </div>
+
+  <div class="row">
+    <label>Image max width (px): <input id="imgMaxWidth" type="number" value="1600" /></label>
+    <label>Image quality (0.0–1.0): <input id="imgQuality" type="number" step="0.05" value="0.9" /></label>
+    <div class="hint">Images are compressed client-side before uploading for quality + size.</div>
+  </div>
+
+  <div class="row">
+    <button id="exportPDF">Export current page → PDF</button>
+    <button id="exportDOCX">Export current page → Word (.docx)</button>
+    <div class="hint">Exports run in your browser, nothing leaves your machine.</div>
+  </div>
+
+  <div class="row">
+    <button id="save">Save</button>
+    <span id="status"></span>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

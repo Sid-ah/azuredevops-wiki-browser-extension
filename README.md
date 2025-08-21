@@ -114,24 +114,25 @@ Access the extension options by:
 ### Adding Diagrams
 
 #### Mermaid Diagrams
-```markdown
+
+
 ```mermaid
 graph TD
     A[Start] --> B{Decision}
     B -->|Yes| C[Action 1]
     B -->|No| D[Action 2]
 ```
-```
+
 
 #### PlantUML Diagrams
-```markdown
+
 ```plantuml
 @startuml
 Alice -> Bob: Hello
 Bob -> Alice: Hi there
 @enduml
 ```
-```
+
 
 ### Image Upload
 1. Ensure PAT is configured in options
